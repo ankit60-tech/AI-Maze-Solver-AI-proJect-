@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Maze Solver | BFS + A*</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">⌘</div>
+      <div><p class="eyebrow">ARTIFICIAL INTELLIGENCE MINI PROJECT</p><h1>AI Maze Solver</h1></div>
+      <span class="status"><i></i> SYSTEM READY</span>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow cyan">PATHFINDING VISUALIZER</p>
+        <h2>Find the <span>shortest path.</span></h2>
+        <p class="subtext">Design a maze, choose a search algorithm, and watch the AI navigate around obstacles.</p>
+      </div>
+      <div class="formula-card"><span> A* EVALUATION </span><strong>f(n) = g(n) + h(n)</strong><small>Cost so far + estimated cost to goal</small></div>
+    </section>
+
+    <section class="workspace">
+      <div class="maze-panel panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">INTERACTIVE GRID</p><h3>Maze canvas</h3></div>
+          <span class="grid-size">15 × 15</span>
+        </div>
+        <div id="grid" class="grid" aria-label="Interactive maze grid"></div>
+        <div class="legend">
+          <span><i class="key start"></i>Start</span><span><i class="key goal"></i>Goal</span>
+          <span><i class="key wall"></i>Wall</span><span><i class="key explored"></i>Explored</span>
+          <span><i class="key path"></i>Final path</span>
+        </div>
+        <p class="hint">Tip: click or drag across cells to draw walls. Start and goal cannot be overwritten.</p>
+      </div>
+
+      <aside class="controls-panel panel">
+        <p class="eyebrow">CONTROL CENTER</p><h3>Run simulation</h3>
+        <label for="algorithm">Search algorithm</label>
+        <select id="algorithm"><option value="bfs">Breadth-First Search (BFS)</option><option value="astar">A* Search</option></select>
+        <div class="button-stack">
+          <button id="solve" class="primary">▶ &nbsp; Solve maze</button>
+          <button id="random" class="secondary">✦ &nbsp; Generate random maze</button>
+          <button id="reset" class="ghost">↺ &nbsp; Reset grid</button>
+        </div>
+        <div id="message" class="message" role="status">Ready. Choose an algorithm and solve the maze.</div>
+        <div class="metrics">
+          <div><span>PATH LENGTH</span><strong id="pathLength">—</strong><small>moves</small></div>
+          <div><span>NODES EXPLORED</span><strong id="nodesExplored">—</strong><small>cells visited</small></div>
+          <div><span>EXECUTION TIME</span><strong id="runtime">—</strong><small>milliseconds</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <footer><span>AI MINI PROJECT · SEARCH & PATHFINDING</span><span>Built with HTML · CSS · JavaScript · Python Flask</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
